@@ -22,10 +22,10 @@
                 <td>{{$p->nome}}</td>
                 <td>R$ {{$p->valor}}</td>
                 <td>{{$p->descricao}}</td>
-                <td>@if ($p->quantidade == 0) Fora de estoque @else {{$p->quantidade}} @endif</td>
+                <td>@if ($p->quantidade == 0) Estoque zerado @else {{$p->quantidade}} @endif</td>
                 <td class="meio">
                     <a href="/produtos/mostra/{{$p->id}}">
-                        <i class="fas fa-search"></i>
+                        Visualizar
                     </a>
                 </td>
             </tr>

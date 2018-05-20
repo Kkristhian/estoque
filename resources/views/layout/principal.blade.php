@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <title>Casas Bahia</title>
+        <title>Casas Bahia </title>
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
@@ -24,11 +24,15 @@
                 width: 100%;
             }
         </style>
+    
+</td>
+
     </head>
     <body>
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="collapse navbar-collapse" id="navbarNav">
+                
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a href="/produtos/novo" class="nav-link">CADASTRO DE PRODUTOS</a>
