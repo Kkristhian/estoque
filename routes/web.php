@@ -15,7 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/produtos', "ProdutoController@lista");
+Route::get('/sobre', function () {
+    return "Primeira rota com Laravel";
+ });
+ 
+ Route::get('/produtos',"ProdutoController@lista");
 
-Route::get('/produtos/mostra/{id}', 'ProdutoController@mostra')
-->where('id','[0-9]+');
+Route::get('/produtos/mostra/{id}',"ProdutoController@mostra");
+
+Route::get('/produtos/novo',"ProdutoController@novo");
+
+Route::post('/produtos/adiciona',"ProdutoController@adiciona");

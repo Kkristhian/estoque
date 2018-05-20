@@ -1,29 +1,36 @@
 <?php
+    namespace estoque\Http\Controllers;
+    use Illuminate\Http\Request;
+    use Illuminate\Support\Facades\DB;
+    use Illuminate\Http\RedirectResponse;
 
-namespace estoque\Http\Controllers;
+    class ProdutoController extends Controller {
 
-use Illuminate\Support\Facades\DB;
-use Request;
+        public function lista() {
+            $produtos = DB::select('select * from produtos');
+            return view('produto/listagem')->with('produtos',$produtos);
+        }
 
-class ProdutoController
-{
-    public function lista() {
-        if (view()->exists("produtos-listagem")) {
-            $produtos = DB::select("select * from produtos");
-            return view("produtos-listagem")->withProdutos($produtos);
-        } else {
-            //criar uma view para erro 404 ou algo parecido.
-            return "Página não localizada!";
+        public function mostra($id) {
+            $resposta = DB::select("SELECT * FROM produtos WHERE id=?",[$id]);
+            return view ('produto/detalhes')->with("p",$resposta[0]);
+        }
+
+        public function novo() {
+            return view ('produto/novo');
+        }
+
+        public function adiciona(Request $request) {
+            $data = $request->all();
+            $add = DB::insert("INSERT INTO produtos(nome,valor,descricao,quantidade) VALUES(?,?,?,?)",
+                [$data['nome'],
+                $data['valor'],
+                $data['descricao'],
+                $data['quantidade']]);
+            
+            if ($add) {
+                return redirect('/produtos')->with('adicionou',true);
+            }
         }
     }
-
-    public function mostra() {
-        $id = Request::route('id', '0');
-        $resposta = DB::select("select * from produtos where id = ?",[$id]);
-        if (empty($resposta)) {
-            return "<h1>Este produto não existe</h1>";
-        } else {
-            return view("produtos-detalhes")->with("p",$resposta[0]);
-        }
-    }
-}
+?>

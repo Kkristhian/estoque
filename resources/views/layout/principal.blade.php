@@ -5,40 +5,41 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <title>Laravel</title>
+        <title>Casas Bahia</title>
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+
+        <style>
+            .meio {
+                text-align: center;
+            }
+            .totalwidth {
+                width: 100%;
+            }
+        </style>
     </head>
     <body>
         <div class="container">
-            <center><h1>Listagem de produtos</h1></center>
-            <table class="table table-bordered table-stripped">
-                <thead class="thead-dark">
-                    <th>Nome</th>
-                    <th>Valor</th>
-                    <th>Descrição</th>
-                    <th>Quantidade</th>
-                    <th></th>
-                </thead>
-                <tbody>
-                    <?php foreach ($produtos as $p): ?>
-                        <tr>
-                        <td><?= $p->nome ?></td>
-                        <td><?= $p->valor ?></td>
-                        <td><?= $p->descricao ?></td>
-                        <td><?= $p->quantidade ?></td>
-                        <td><a href="/produtos/mostra?id=<?=$p->id?">
-                            <span class="glyphicon glyphicon-search"></span>
-                        </a></td>
-                        </tr>
-                    <?php endforeach ?>
-                </tbody>
-            </table>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="/produtos/novo" class="nav-link">CADASTRO DE PRODUTOS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/produtos" class="nav-link">LISTAGEM DE PRODUTOS</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            @yield('conteudo')
         </div>
 
         <!-- Optional JavaScript -->
