@@ -1,11 +1,11 @@
 @extends('layout/principal')
 
 @section('conteudo')   
-<h1 class="meio">LISTAGEM DE PRODUTOS</h1>
+<h1 class="meio">LISTAGEM DOS PRODUTOS</h1>
 
 @if (session('adicionou') == true)
     <div class="alert alert-success">
-        <h4 class="meio">PRODUTO ADICIONADO COM SUCESSO!!!</h4>
+        <h4 class="meio">PRODUTO ADICIONADO COM SUCESSO !!!</h4>
     </div>
 @endif
 <table class="table table-bordered table-stripped">
@@ -22,7 +22,7 @@
                 <td>{{$p->nome}}</td>
                 <td>R$ {{$p->valor}}</td>
                 <td>{{$p->descricao}}</td>
-                <td>@if ($p->quantidade == 0) Estoque zerado @else {{$p->quantidade}} @endif</td>
+                <td>@if ($p->quantidade == 0) ESTOQUE ZERADO @else {{$p->quantidade}} @endif</td>
                 <td class="meio">
                     <a href="/produtos/mostra/{{$p->id}}">
                         Visualizar
